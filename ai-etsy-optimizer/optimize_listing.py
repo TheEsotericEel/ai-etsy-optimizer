@@ -2,15 +2,16 @@ import os
 import openai
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+# Load .env if present
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-
-# Quick local test—set your key here (remove before production)
-os.environ['OPENAI_API_KEY'] = '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'
-openai.api_key = os.getenv('OPENAI_API_KEY')
-
+# Read API key from environment ONLY (never hard-code)
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 system_prompt = """You are an Etsy Listing Optimizer.
 When given a raw product title, description and tags, output a complete, optimized listing in this exact format:
