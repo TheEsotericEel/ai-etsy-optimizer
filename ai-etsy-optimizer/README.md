@@ -1,0 +1,1 @@
+# ai-etsy-optimizer
